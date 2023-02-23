@@ -4,11 +4,50 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/estilos1.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         
         <h2>Lista de Estados</h2>
-        <a th:href="@{}">Agregar Estado</a>
+        <a th:href="@{/agregarEstado}">Agregar Estado</a>
+        
+        
+         <div th:if="${estados!= null and !estados.empty}">
+             
+             <table border="3">
+                 <thead>
+                 <th>Pais</th>
+                 <th>Capital</th>
+                 <th>Idioma</th>
+                 <th>Superficie</th>
+                 <th colspan="2">Acciones</th>
+                     
+                     
+                 </thead>
+                 <tbody>
+                     
+                     <tr th:each="item : ${estados}">
+                         <td th:text="${item.pais}"></td>
+                         <td th:text="${item.capital}"></td>
+                         <td th:text="${item.idioma}"></td>
+                         <td th:text="${item.superficie}"></td>
+                         <td ><a th:href="@{/modificarEstado/}+${item.idEstado}">Editar</a></td>
+                                
+                         
+                         
+                     </tr>
+                     
+                     
+                     
+                 </tbody>
+                 
+                 
+                 
+             </table>
+             
+             
+             
+         </div>
         
     </body>
 </html>
