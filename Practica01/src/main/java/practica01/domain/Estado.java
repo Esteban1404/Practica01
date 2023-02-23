@@ -7,10 +7,10 @@ package practica01.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 /**
  *
@@ -18,33 +18,29 @@ import org.springframework.data.annotation.Id;
  */
 @Data
 @Entity
-@Table(name="estado")
-public class Estado  implements Serializable{
+@Table(name = "estado")
+public class Estado implements Serializable {
 
-    private static final long serialVersionUID= 1L;
-    
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)       
-    private Long    idEstado;//Hibernate lo transforma en id_cliente
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idEstado;//Hibernate lo transforma en id_cliente
     private String pais;
     private String capital;
     private String idioma;
     private int superficie;
-    
-    
+
     public Estado() {
-    
-    
+
     }
 
-    public Estado( String pais, String capital, String idioma, int superficie) {
-        
+    public Estado(String pais, String capital, String idioma, int superficie) {
+
         this.pais = pais;
         this.capital = capital;
         this.idioma = idioma;
         this.superficie = superficie;
     }
-    
-    
-    
+
 }

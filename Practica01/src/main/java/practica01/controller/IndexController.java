@@ -4,22 +4,42 @@
  */
 package practica01.controller;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import practica01.Service.EstadoService;
+
+import practica01.domain.Estado;
 
 
 /**
  *
  * @author esteb
  */
+@Slf4j
 @Controller
 public class IndexController {
     
-    @GetMapping("/")
-    public String page(Model model) {
-        model.addAttribute("attribute", "value");
-        return "view.name";
+    @Autowired        
+    EstadoService estadoService;
+    
+    
+    @GetMapping("/agregarEstado")
+    public String nuevoCliente(Estado estado) {
+        log.info("holaaa");
+        return "modificadarEstado";
     }
     
+    @GetMapping("/")
+    public String inicio(Model model) {
+        log.info("Ahora desde MVC");
+
+        var estados = estadoService.getEstados();
+        model.addAttribute("estados", estados);  //Traer lista de clientes
+
+        return "index";
+    }
 }
