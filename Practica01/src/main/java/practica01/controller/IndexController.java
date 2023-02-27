@@ -49,6 +49,11 @@ public class IndexController {
         return "redirect:/";
     }
 
-    
+    @GetMapping("/modificarEstado/{idEstado}")
+     public String modificarEstado(Estado estado, Model model){
+         estado = estadoService.getEstado(estado);
+         model.addAttribute("cliente", estado);
+         return "modificarEstado";
+     }     
 
 }
