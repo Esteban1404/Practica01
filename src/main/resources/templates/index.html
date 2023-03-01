@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org">
+   
+    <head>
+        <title>MaPaMundi</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/css/estilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body style="text-align: center" >
+        
+        <header  th:replace="layout/plantilla :: header "> </header>
+        
+        <h2 style="color:blue" >Lista de Estados</h2>
+        <a th:href="@{/agregarEstado}">Agregar Estado</a>
+        <br/>
+        <br/>
+        
+         <div  th:if="${estados!= null and !estados.empty}">
+             
+             <div align="center">
+             <table  border="3">
+                 <thead>
+                 <th>Pais</th>
+                 <th>Capital</th>
+                 <th>Idioma</th>
+                 <th>Superficie</th>
+                 <th colspan="2">Acciones</th>
+                     
+                     
+                 </thead>
+                 <tbody>
+                     
+                     <tr th:each="item : ${estados}">
+                         <td th:text="${item.pais}"></td>
+                         <td th:text="${item.capital}"></td>
+                         <td th:text="${item.idioma}"></td>
+                         <td th:text="${item.superficie}"></td>
+                         <td ><a th:href="@{/modificarEstado/}+${item.idEstado}">Editar</a></td>
+                         <td ><a th:href="@{/eliminarEstado/}+${item.idEstado}">Eliminar</a></td>
+                                
+                         
+                         
+                     </tr>
+                     
+                     
+                     
+                 </tbody>
+                 
+                 
+                 
+             </table>
+             </div>
+             
+             
+         </div>
+         <footer  th:replace="layout/plantilla 
+                 :: footer"/> 
+    </body>
+    
+</html>
