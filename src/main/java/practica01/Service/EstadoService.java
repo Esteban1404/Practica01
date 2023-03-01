@@ -10,12 +10,12 @@ import practica01.domain.Estado;
  */
 public interface EstadoService {
     
-    public List<Estado> getEstados(); //TRAER LISTA DE CLIENTES
+    public List<Estado> getEstados(); //
     
-    public Estado getEstado(Estado estado);//UN UNICO CLIENTE
+    public Estado getEstado(Estado estado);//
     
-    public void save(Estado estado);// Para insertar o modificar (Si viene el idCliente o no)
+    public void save(Estado estado);//
     
-    public void delete (Estado estado); //ELIMINAR CLIENTE
+    public void delete (Estado estado); //
     
 }
