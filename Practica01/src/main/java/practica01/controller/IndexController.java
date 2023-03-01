@@ -55,5 +55,9 @@ public class IndexController {
          model.addAttribute("cliente", estado);
          return "modificarEstado";
      }     
-
+@GetMapping("/eliminarEstado/{idEstado}")
+    public String modificarCliente(Estado estado){
+    estadoService.delete(estado);
+   return "redirect:/";
+    }
 }
